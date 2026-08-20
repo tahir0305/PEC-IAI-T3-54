@@ -11,12 +11,12 @@ graph = {
     'H': ['O', 'P'],
     'I': ['P', 'Q'],
     'J': ['R'],
+    'N': [],
     'O': [],
     'P': [],
     'Q': [],
     'R': [],
-    'T': [],
-    'N': []
+    'T': []
 }
 
 h = {
@@ -29,13 +29,13 @@ h = {
     'G': 4,
     'H': 3,
     'I': 0,
-    'J': 0,
+    'J': 4,
+    'N': 0,
     'O': 2,
     'P': 3,
     'Q': 0,
     'R': 4,
-    'T': 5,
-    'N': 0
+    'T': 5
 }
 
 start = 'A'
@@ -43,7 +43,6 @@ goal = 'P'
 
 open = [(h[start], start)]
 closed = []
-parent = {start: None}
 
 while open:
 
@@ -61,19 +60,5 @@ while open:
         if neighbour not in closed:
             heapq.heappush(open, (h[neighbour], neighbour))
 
-            if neighbour not in parent:
-                parent[neighbour] = node
-
-print("Closed:", closed)
-
-# Find solution path
-path = []
-node = goal
-
-while node is not None:
-    path.append(node)
-    node = parent[node]
-
-path.reverse()
-
-print("Solution Path:", path)
+print("Best-First Search:")
+print(" → ".join(str(node) + str(h[node]) for node in closed))
