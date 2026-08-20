@@ -7,9 +7,16 @@ graph = {
     'D': ['I', 'J'],
     'E': ['T'],
     'F': ['R'],
+    'G': ['N'],
     'H': ['O', 'P'],
     'I': ['P', 'Q'],
-    'J': ['R']
+    'J': ['R'],
+    'O': [],
+    'P': [],
+    'Q': [],
+    'R': [],
+    'T': [],
+    'N': []
 }
 
 h = {
@@ -27,7 +34,8 @@ h = {
     'P': 3,
     'Q': 0,
     'R': 4,
-    'T': 5
+    'T': 5,
+    'N': 0
 }
 
 start = 'A'
@@ -58,7 +66,7 @@ while open:
 
 print("Closed:", closed)
 
-# Find path
+# Find solution path
 path = []
 node = goal
 
